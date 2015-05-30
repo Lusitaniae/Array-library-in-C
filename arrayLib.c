@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 // Sum all array values
-arraySum( int vect[], int num)
+int arraySum( int vect[], int num)
 {
       int i, sum = 0;
 
@@ -11,22 +11,19 @@ arraySum( int vect[], int num)
       return(sum); 
 }
 //Avarage of array values
-arrayAvg( int sum, int num)
+float arrayAvg( int sum, int num)
 {
-       int i, avg = 0;
-       avg = sum/num;
-
-       return(avg);
+       return(sum/num);
 }
 //Smaller array value
 arraySmallest( int vect[], int num)
 {
-       int i, smaller = vect[0];
+       int i, smallest = vect[0];
        for(i = 0; i < num; i++)
-           if(vect[i] < menor)
-                menor=vect[i];
+           if(vect[i] < smallest)
+                smallest = vect[i];
 
-       return(menor);
+       return(smallest);
 }
 //Above avg # array values
 arrayAboveAvg(int vect[], int num, int avg)
@@ -43,13 +40,13 @@ main() {
      int vect[10], i, sum;
      for (i = 0; i < 10; i++)
      {
-         printf("Insert Value %d:", i+1);
+         printf("Insert Value #%d: ", i+1);
          scanf("%d", &vect[i]);  
      } 
 
      printf("\n Array Sum: %d", arraySum(vect, 10) );
-     printf("\n Array average: %d", arrayAvg(sum, 10) );
+     printf("\n Array average: %.1f", arrayAvg(arraySum(vect, 10), 10) );
      printf("\n Array Smallest: %d", arraySmallest(vect, 10) );
-     printf("\n %d above avg elements.", arrayAboveAvg(vect, 10, arrayAvg(sum,10)) );
-     getch();
+     printf("\n Above average #%d\n", arrayAboveAvg(vect, 10, arrayAvg(sum,10)) );
+     getchar();
 }
